@@ -1,0 +1,25 @@
+function init(e) {
+    // Prevent the form from submitting if invalid
+    e.preventDefault();
+
+    // Get the values from the input fields
+    let nameinner = document.getElementById('name').value;
+    let email = document.getElementById('email').value;
+    let password = document.getElementById('password').value;
+
+    // Define the validation patterns
+    const namePattern = /^[a-z\s]+$/; // Lowercase letters and spaces
+    const passwordPattern = /^\d{8}$/; // Exactly 8 digits
+
+    // Validate the name input
+    if (!namePattern.test(nameinner)) {
+        document.getElementById('name').style.border = '1px solid red';
+        document.getElementById('name').setCustomValidity('Invalid name: Only lowercase letters and spaces are allowed.');
+    } else {
+        document.getElementById('name').style.border = '';
+        document.getElementById('name').setCustomValidity('');
+    }
+
+    // Validate other inputs (e.g., email and password) similarly if needed
+    // ...
+}
